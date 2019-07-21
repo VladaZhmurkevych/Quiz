@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Score from './Score/Score';
 import Quiz from './Quiz/Quiz';
 import { fetchQuiz } from './store/actions';
+import StartPopUp from './StartPopUp/StartPopUp';
 
 class App extends Component {
   componentDidMount() {
@@ -12,18 +13,23 @@ class App extends Component {
   }
 
   render() {
-    const { quiz } = this.props;
-
+    const { quiz, finishPopup, startPopup } = this.props;
+    const blur = finishPopup || startPopup;
     return (
-      <div>
-        <Score />
-        {(quiz.length) && <Quiz />}
-      </div>
+      <React.Fragment>
+        {startPopup && <StartPopUp />}
+        <div style={{ filter: blur ? 'blur(15px)' : '' }}>
+          <Score />
+          {(quiz.length) && <Quiz />}
+        </div>
+      </React.Fragment>
     );
   }
 }
 
 App.propTypes = {
+  startPopup: PropTypes.bool.isRequired,
+  finishPopup: PropTypes.bool.isRequired,
   fetchQuiz: PropTypes.func.isRequired,
   quiz: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };

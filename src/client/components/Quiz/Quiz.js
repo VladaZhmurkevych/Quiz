@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { nextQuestion, rightAnswer, wrongAnswer } from './store/actions';
 import styles from './_quiz.module.scss';
 import AnswersList from './AnswersList';
+import StartPopUp from "../StartPopUp/StartPopUp";
 
 
 const Quiz = ({

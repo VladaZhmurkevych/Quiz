@@ -3,6 +3,8 @@ import {
   FETCH_ERROR,
   FETCH_START,
   FETCH_SUCCESS,
+  TOGGLE_FINISH_POPUP,
+  TOGGLE_START_POPUP,
 } from './types';
 
 
@@ -21,6 +23,15 @@ export const fetchError = error => ({
 export const fetchStart = () => ({
   type: FETCH_START,
 });
+
+export const toggleStartPopup = () => ({
+  type: TOGGLE_START_POPUP,
+});
+
+export const toggleFinishPopup = () => ({
+  type: TOGGLE_FINISH_POPUP,
+});
+
 
 export const fetchQuiz = () => (dispatch) => {
   dispatch(fetchStart());
