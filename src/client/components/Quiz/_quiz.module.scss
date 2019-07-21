@@ -101,3 +101,27 @@
     cursor: pointer;
   }
 }
+
+@media all and (max-width: 900px){
+  .container{
+    justify-content: center;
+  }
+
+  .picture {
+    max-width: 300px;
+  }
+
+  .picture-container {
+
+    margin: auto;
+    margin-bottom: 15px;
+  }
+
+}
+
+
+@media all and (max-width: 500px){
+  .answer-button {
+   width: 80vw;
+  }
+}

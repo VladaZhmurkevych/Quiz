@@ -5,22 +5,26 @@ import PopUp from '../PopUp/PopUp';
 import { toggleFinishPopup, toggleStartPopup } from '../store/actions';
 import { finishQuiz } from '../Quiz/store/actions';
 import PopUpButton from '../sharedUI/PopUpButton/PopUpButton';
+import styles from './_finishPopUp.module.scss';
 
 const FinishPopUp = ({ close, rightAnswers, wrongAnswers }) => (
   <PopUp close={close}>
-    <div>
-      <p>
+    <div className={styles.scoreInfo}>
+      <p className={styles.text}>
         Right answers:
+        {' '}
         {rightAnswers}
         {' '}
 
       </p>
-      <p>
+      <p className={styles.text}>
         Wrong answers:
+        {' '}
         {wrongAnswers}
       </p>
-      <p>
+      <p className={styles.text}>
         Total score:
+        {' '}
         {(rightAnswers / (rightAnswers + wrongAnswers)) * 100}
         %
       </p>
