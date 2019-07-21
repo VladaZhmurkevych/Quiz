@@ -8,6 +8,8 @@ const INITIAL_STATE = {
   activeQuestionIndex: 0,
   rightAnswers: 0,
   wrongAnswers: 0,
+  isAnswered: false,
+  activeAnswerIndex: -1
 };
 
 const quizReducer = (state = INITIAL_STATE, action) => {
@@ -15,17 +17,23 @@ const quizReducer = (state = INITIAL_STATE, action) => {
     case RIGHT_ANSWER:
       return {
         ...state,
-        rightAnswers: state.rightAnswers + 1
+        isAnswered: true,
+        rightAnswers: state.rightAnswers + 1,
+        activeAnswerIndex: action.payload,
       };
     case WRONG_ANSWER:
       return {
         ...state,
-        wrongAnswers: state.wrongAnswers + 1
+        isAnswered: true,
+        wrongAnswers: state.wrongAnswers + 1,
+        activeAnswerIndex: action.payload,
       };
     case NEXT_QUESTION:
       return {
         ...state,
-        activeQuestionIndex: state.activeQuestionIndex + 1
+        isAnswered: false,
+        activeQuestionIndex: state.activeQuestionIndex + 1,
+        activeAnswerIndex: -1,
       };
     default:
       return state;

@@ -5,12 +5,14 @@ import {
   FINISH_QUIZ
 } from './types';
 
-export const rightAnswer = () => ({
-  type: RIGHT_ANSWER
+export const rightAnswer = index => ({
+  type: RIGHT_ANSWER,
+  payload: index
 });
 
-export const wrongAnswer = () => ({
-  type: WRONG_ANSWER
+export const wrongAnswer = index => ({
+  type: WRONG_ANSWER,
+  payload: index
 });
 
 export const nextQuestion = () => ({

@@ -49,6 +49,21 @@ module.exports = {
         ]
       },
       {
+        test: /\.scss$/,
+        exclude: /\.module.(scss)$/,
+        loader: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
         test: /\.(woff|woff2|eot|ttf|png|svg|jpg|gif|mp4|webm)$/,
         loader: 'url-loader'
       },

@@ -1,12 +1,19 @@
+@import '../../assets/style/mixins';
+@import '../../assets/style/variables';
+
 .quiz {
   max-width: 1000px;
   margin: auto;
+  border: 1px solid rgba(222,222,222, 0.2);
+  padding: 15px;
 }
 
 .title {
   font-family: 'Pridi', serif;
   font-size: 45px;
   text-align: center;
+  padding: 40px;
+  user-select: none;
 }
 
 .picture-container {
@@ -22,10 +29,12 @@
 .container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .answer-list {
   list-style: none;
+  user-select: none;
 }
 
 .answer-button {
@@ -35,10 +44,48 @@
   border-radius: 5px;
   width: 400px;
   font-family: 'Pridi', serif;
-  cursor: pointer;
 
   &:hover {
-    box-shadow: 0px 0px 20px 1px rgba(222, 222, 222, 0.77);
-    background-color: rgba(222, 222, 222, 0.4);
+    @include button-hover-effects;
+    cursor: pointer;
+  }
+}
+
+.answer-button-inactive {
+  &:hover {
+    background-color: white;
+    box-shadow: none;
+    cursor: default;
+  }
+}
+
+.answer-button-right {
+  background: green;
+}
+
+.answer-button-wrong {
+  background: red;
+}
+
+.answer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.next-button {
+  background: white;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px 25px;
+  border: 1px solid #dedede;
+  outline: none;
+  font-family: 'Pridi', serif;
+
+
+  &:not(:disabled):hover {
+    @include button-hover-effects;
+    cursor: pointer;
   }
 }

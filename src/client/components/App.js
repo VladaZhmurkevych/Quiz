@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes, {shape} from 'prop-types';
+import PropTypes from 'prop-types';
 import Score from './Score/Score';
 import Quiz from './Quiz/Quiz';
 import { fetchQuiz } from './store/actions';
@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   render() {
-    const {quiz} = this.props;
+    const { quiz } = this.props;
 
     return (
       <div>

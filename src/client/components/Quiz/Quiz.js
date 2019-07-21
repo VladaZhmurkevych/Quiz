@@ -1,58 +1,44 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { rightAnswer, wrongAnswer, nextQuestion } from './store/actions';
+import { nextQuestion, rightAnswer, wrongAnswer } from './store/actions';
 import styles from './_quiz.module.scss';
+import AnswersList from './AnswersList';
 
-class Quiz extends Component {
-  state = {};
 
-  render() {
-    const {
-      addRight, addWrong, next, quiz, activeQuestionIndex
-    } = this.props;
-    return (
-      <div className={styles.quiz}>
-        <p className={styles.title}>{quiz[activeQuestionIndex].title}</p>
-        <div className={styles.container}>
-          <div className={styles.pictureContainer}>
-            <img
-              className={styles.picture}
-              src={quiz[activeQuestionIndex].picture}
-              alt={quiz[activeQuestionIndex].title}
-            />
-          </div>
+const Quiz = ({
+  next, quiz, isAnswered
+}) => (
+  <div className={styles.quiz}>
+    <p className={styles.title}>{quiz.title}</p>
+    <div className={styles.container}>
+      <div className={styles.pictureContainer}>
+        <img
+          className={styles.picture}
+          src={quiz.picture}
+          alt={quiz.title}
+        />
+      </div>
+      <div className={styles.answerContainer}>
+        <AnswersList />
+        <button disabled={!isAnswered} className={styles.nextButton} type="button" onClick={next}>Next</button>
 
-          <ul className={styles.answerList}>
-            {quiz[activeQuestionIndex].answers.map(item => (
-              <li key={item.text} className={styles.answerButton}>
-                {item.text}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div> This is quiz</div>
-        <button type="button" onClick={addRight}>Right</button>
-        <button type="button" onClick={addWrong}>Wrong</button>
-        <button type="button" onClick={next}>Next</button>
       </div>
 
-    );
-  }
-}
+    </div>
+
+  </div>
+);
 
 Quiz.propTypes = {
-  addRight: PropTypes.func.isRequired,
-  addWrong: PropTypes.func.isRequired,
   next: PropTypes.func.isRequired,
-  quiz: PropTypes.arrayOf(PropTypes.shape()).isRequired,
-  activeQuestionIndex: PropTypes.number.isRequired,
+  quiz: PropTypes.shape().isRequired,
+  isAnswered: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({
   ...state.quizReducer,
-  quiz: state.appReducer.quiz
+  quiz: state.appReducer.quiz[state.quizReducer.activeQuestionIndex]
 });
 
 const mapDispatchToProps = dispatch => ({

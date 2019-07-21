@@ -28,7 +28,7 @@ const quiz = [
     picture: 'https://2.bp.blogspot.com/_QEoO4GkMbBE/TC2z9DpKIvI/AAAAAAAACyw/gVLkXP5ZIfg/w1200-h630-p-k-no-nu/Edvard+Munch-%C3%87%C4%B1%C4%9Fl%C4%B1k.jpg',
     answers: [
       {
-        text: 'Leonardo Da Vinci',
+        text: 'Misha',
         isRight: false
       },
       {
@@ -40,7 +40,7 @@ const quiz = [
         isRight: true
       },
       {
-        text: 'Mozart',
+        text: 'Bogdan',
         isRight: false
       },
     ]
