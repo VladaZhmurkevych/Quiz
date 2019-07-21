@@ -117,11 +117,19 @@
     margin-bottom: 15px;
   }
 
+  .title {
+    font-size: 35px;
+  }
+
 }
 
 
 @media all and (max-width: 500px){
   .answer-button {
    width: 80vw;
+  }
+
+  .title {
+    font-size: 26px;
   }
 }
