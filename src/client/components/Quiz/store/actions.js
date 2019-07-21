@@ -15,10 +15,11 @@ export const wrongAnswer = index => ({
   payload: index
 });
 
-export const nextQuestion = () => ({
-  type: NEXT_QUESTION
+export const nextQuestion = index => ({
+  type: NEXT_QUESTION,
+  payload: index
 });
 
 export const finishQuiz = () => ({
-  type: FINISH_QUIZ
+  type: FINISH_QUIZ,
 });

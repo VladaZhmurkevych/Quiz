@@ -1,7 +1,8 @@
 import {
   WRONG_ANSWER,
   NEXT_QUESTION,
-  RIGHT_ANSWER
+  RIGHT_ANSWER,
+  FINISH_QUIZ
 } from './types';
 
 const INITIAL_STATE = {
@@ -35,6 +36,8 @@ const quizReducer = (state = INITIAL_STATE, action) => {
         activeQuestionIndex: state.activeQuestionIndex + 1,
         activeAnswerIndex: -1,
       };
+    case FINISH_QUIZ:
+      return { ...INITIAL_STATE }
     default:
       return state;
   }

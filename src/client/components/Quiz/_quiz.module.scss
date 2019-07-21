@@ -61,10 +61,22 @@
 
 .answer-button-right {
   background: green;
+  color: white;
+
+  &:hover {
+    background: green;
+
+  }
 }
 
 .answer-button-wrong {
   background: red;
+  color: white;
+
+  &:hover {
+    background: red;
+
+  }
 }
 
 .answer-container {

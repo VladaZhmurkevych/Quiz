@@ -5,6 +5,7 @@ import Score from './Score/Score';
 import Quiz from './Quiz/Quiz';
 import { fetchQuiz } from './store/actions';
 import StartPopUp from './StartPopUp/StartPopUp';
+import FinishPopUp from "./FinishPopUp/FinishPopUp";
 
 class App extends Component {
   componentDidMount() {
@@ -18,10 +19,12 @@ class App extends Component {
     return (
       <React.Fragment>
         {startPopup && <StartPopUp />}
+        {finishPopup && <FinishPopUp />}
         <div style={{ filter: blur ? 'blur(15px)' : '' }}>
           <Score />
           {(quiz.length) && <Quiz />}
         </div>
+
       </React.Fragment>
     );
   }
