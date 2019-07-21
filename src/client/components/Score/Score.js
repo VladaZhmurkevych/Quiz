@@ -1,13 +1,35 @@
 import React from 'react';
-import './_score.module.scss';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import styles from './_score.module.scss';
 
-const Score = () => (
-  <div>
-    <p>Total: </p>
-    <p>Right: </p>
-    <p>Faults: </p>
+const Score = ({ rightAnswers, wrongAnswers, activeQuestionIndex }) => (
+  <div className={styles.score}>
+    <p>
+      Total:
+      {activeQuestionIndex}
+      {' '}
+
+    </p>
+    <p>
+      Right:
+      {rightAnswers}
+    </p>
+    <p>
+      Faults:
+      {wrongAnswers}
+    </p>
   </div>
 
 );
 
-export default Score;
+Score.propTypes = {
+  rightAnswers: PropTypes.number.isRequired,
+  wrongAnswers: PropTypes.number.isRequired,
+  activeQuestionIndex: PropTypes.number.isRequired
+};
+
+const mapStateToProps = state => state.quizReducer;
+
+
+export default connect(mapStateToProps,)(Score);

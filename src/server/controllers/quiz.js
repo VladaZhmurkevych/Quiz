@@ -76,4 +76,4 @@ const addAllQuizzes = async (req, res) => {
 module.exports = {
   getQuiz,
   addAllQuizzes,
-}
+};
