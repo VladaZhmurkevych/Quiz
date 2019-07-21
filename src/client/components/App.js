@@ -5,7 +5,7 @@ import Score from './Score/Score';
 import Quiz from './Quiz/Quiz';
 import { fetchQuiz } from './store/actions';
 import StartPopUp from './StartPopUp/StartPopUp';
-import FinishPopUp from "./FinishPopUp/FinishPopUp";
+import FinishPopUp from './FinishPopUp/FinishPopUp';
 
 class App extends Component {
   componentDidMount() {

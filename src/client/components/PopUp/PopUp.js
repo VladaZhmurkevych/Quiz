@@ -22,7 +22,6 @@ class PopUp extends React.Component {
     return (
       <div className={styles.popUp} ref={this.popUp} onClick={this.handleClickOutside}>
         <div className={styles.popUpContainer}>
-          <button type="button" className={styles.popUpClose} onClick={close}>X</button>
           {children}
         </div>
       </div>

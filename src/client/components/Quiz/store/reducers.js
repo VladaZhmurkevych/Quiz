@@ -37,7 +37,7 @@ const quizReducer = (state = INITIAL_STATE, action) => {
         activeAnswerIndex: -1,
       };
     case FINISH_QUIZ:
-      return { ...INITIAL_STATE }
+      return { ...INITIAL_STATE };
     default:
       return state;
   }
