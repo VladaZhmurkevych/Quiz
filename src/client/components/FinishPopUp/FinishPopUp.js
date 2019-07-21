@@ -4,14 +4,39 @@ import PropTypes from 'prop-types';
 import PopUp from '../PopUp/PopUp';
 import { toggleFinishPopup, toggleStartPopup } from '../store/actions';
 import { finishQuiz } from '../Quiz/store/actions';
+import PopUpButton from '../sharedUI/PopUpButton/PopUpButton';
 
-const FinishPopUp = ({ close }) => (
-  <PopUp close={close}><p>bye</p></PopUp>
+const FinishPopUp = ({ close, rightAnswers, wrongAnswers }) => (
+  <PopUp close={close}>
+    <div>
+      <p>
+        Right answers:
+        {rightAnswers}
+        {' '}
+
+      </p>
+      <p>
+        Wrong answers:
+        {wrongAnswers}
+      </p>
+      <p>
+        Total score:
+        {(rightAnswers / (rightAnswers + wrongAnswers)) * 100}
+        %
+      </p>
+    </div>
+
+    <PopUpButton onClick={close}>Try again</PopUpButton>
+  </PopUp>
 );
 
 FinishPopUp.propTypes = {
   close: PropTypes.func.isRequired,
+  rightAnswers: PropTypes.number.isRequired,
+  wrongAnswers: PropTypes.number.isRequired,
 };
+
+const mapStateToProps = state => state.quizReducer;
 
 const mapDispatchToProps = dispatch => ({
   close: () => {
@@ -21,4 +46,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(null, mapDispatchToProps)(FinishPopUp);
+export default connect(mapStateToProps, mapDispatchToProps)(FinishPopUp);

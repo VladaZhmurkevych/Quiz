@@ -17,7 +17,7 @@ class PopUp extends React.Component {
 
 
   render() {
-    const { close, children } = this.props;
+    const { children } = this.props;
 
     return (
       <div className={styles.popUp} ref={this.popUp} onClick={this.handleClickOutside}>
