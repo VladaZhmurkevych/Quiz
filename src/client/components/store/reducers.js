@@ -7,7 +7,7 @@ import {
 const INITIAL_STATE = {
   error: null,
   loading: false,
-  quiz: null,
+  quiz: [],
 };
 
 const appReducer = (state = INITIAL_STATE, action) => {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import PropTypes, {shape} from 'prop-types';
 import Score from './Score/Score';
 import Quiz from './Quiz/Quiz';
 import { fetchQuiz } from './store/actions';
@@ -12,17 +12,20 @@ class App extends Component {
   }
 
   render() {
+    const {quiz} = this.props;
+
     return (
       <div>
         <Score />
-        <Quiz />
+        {(quiz.length) && <Quiz />}
       </div>
     );
   }
 }
 
 App.propTypes = {
-  fetchQuiz: PropTypes.func.isRequired
+  fetchQuiz: PropTypes.func.isRequired,
+  quiz: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 const mapStateToProps = state => state.appReducer;

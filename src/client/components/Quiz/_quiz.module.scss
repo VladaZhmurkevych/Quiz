@@ -1,0 +1,44 @@
+.quiz {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.title {
+  font-family: 'Pridi', serif;
+  font-size: 45px;
+  text-align: center;
+}
+
+.picture-container {
+  padding: 10px;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+}
+
+.picture {
+  max-width: 445px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.answer-list {
+  list-style: none;
+}
+
+.answer-button {
+  border: 1px solid #dedede;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  width: 400px;
+  font-family: 'Pridi', serif;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0px 0px 20px 1px rgba(222, 222, 222, 0.77);
+    background-color: rgba(222, 222, 222, 0.4);
+  }
+}

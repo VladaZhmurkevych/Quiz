@@ -1,3 +1,26 @@
 .score{
+  display: flex;
+  justify-content: space-around;
+  max-width: 1000px;
+  margin: auto;
+}
 
+.result {
+  font-size: 30px;
+  width: 150px;
+  text-align: center;
+}
+
+
+.right-answer {
+
+  color: green;
+}
+
+.wrong-answer {
+  color: red;
+}
+
+span {
+  font-family: 'Righteous', cursive;
 }
