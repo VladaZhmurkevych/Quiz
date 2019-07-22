@@ -2,7 +2,7 @@ import {
   WRONG_ANSWER,
   NEXT_QUESTION,
   RIGHT_ANSWER,
-  FINISH_QUIZ
+  FINISH_QUIZ,
 } from './types';
 
 const INITIAL_STATE = {
@@ -10,7 +10,7 @@ const INITIAL_STATE = {
   rightAnswers: 0,
   wrongAnswers: 0,
   isAnswered: false,
-  activeAnswerIndex: -1
+  activeAnswerIndex: -1,
 };
 
 const quizReducer = (state = INITIAL_STATE, action) => {

@@ -1,6 +1,7 @@
 .score{
   display: flex;
   justify-content: space-around;
+  align-items: center;
   max-width: 1000px;
   margin: auto;
   padding: 20px;
@@ -13,6 +14,9 @@
   text-align: center;
 }
 
+.number {
+  font-family: 'Righteous', cursive;
+}
 
 .right-answer {
 
@@ -23,9 +27,6 @@
   color: red;
 }
 
-span {
-  font-family: 'Righteous', cursive;
-}
 
 @media all and (max-width: 500px){
   .result {
