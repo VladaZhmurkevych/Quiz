@@ -6,8 +6,11 @@ import { toggleFinishPopup, toggleStartPopup } from '../store/actions';
 import { finishQuiz } from '../Quiz/store/actions';
 import PopUpButton from '../sharedUI/PopUpButton/PopUpButton';
 import styles from './_finishPopUp.module.scss';
+import { formatTime } from '../../utils';
 
-const FinishPopUp = ({ close, rightAnswers, wrongAnswers }) => (
+const FinishPopUp = ({
+  close, rightAnswers, wrongAnswers, questionsCount, timer, time
+}) => (
   <PopUp close={close}>
     <div className={styles.scoreInfo}>
       <p className={styles.text}>
@@ -25,11 +28,16 @@ const FinishPopUp = ({ close, rightAnswers, wrongAnswers }) => (
       <p className={styles.text}>
         Total score:
         {' '}
-        {(rightAnswers / (rightAnswers + wrongAnswers)) * 100}
+        {(rightAnswers / questionsCount) * 100}
         %
       </p>
     </div>
 
+    <p className={styles.time}>
+    Time:
+      {' '}
+      {formatTime(time - timer)}
+    </p>
     <PopUpButton onClick={close}>Try again</PopUpButton>
   </PopUp>
 );
@@ -38,9 +46,17 @@ FinishPopUp.propTypes = {
   close: PropTypes.func.isRequired,
   rightAnswers: PropTypes.number.isRequired,
   wrongAnswers: PropTypes.number.isRequired,
+  questionsCount: PropTypes.number.isRequired,
+  timer: PropTypes.number.isRequired,
+  time: PropTypes.number.isRequired,
 };
 
-const mapStateToProps = state => state.quizReducer;
+const mapStateToProps = state => ({
+  ...state.quizReducer,
+  questionsCount: state.appReducer.quiz.length,
+  timer: state.appReducer.timer,
+  time: state.appReducer.time,
+});
 
 const mapDispatchToProps = dispatch => ({
   close: () => {

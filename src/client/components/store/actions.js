@@ -5,8 +5,13 @@ import {
   FETCH_SUCCESS,
   TOGGLE_FINISH_POPUP,
   TOGGLE_START_POPUP,
+  TIMER_TICK,
 } from './types';
 
+
+export const timerTick = () => ({
+  type: TIMER_TICK,
+});
 
 export const fetchSuccess = data => ({
   type: FETCH_SUCCESS,

@@ -2,7 +2,7 @@ import {
   WRONG_ANSWER,
   RIGHT_ANSWER,
   NEXT_QUESTION,
-  FINISH_QUIZ
+  FINISH_QUIZ,
 } from './types';
 
 export const rightAnswer = index => ({
