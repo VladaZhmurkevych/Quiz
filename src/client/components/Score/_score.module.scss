@@ -1,0 +1,35 @@
+.score{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  background-color: rgba(222,222,222,0.2);
+}
+
+.result {
+  font-size: 30px;
+  width: 150px;
+  text-align: center;
+}
+
+.number {
+  font-family: 'Righteous', cursive;
+}
+
+.right-answer {
+
+  color: green;
+}
+
+.wrong-answer {
+  color: red;
+}
+
+
+@media all and (max-width: 500px){
+  .result {
+    font-size: 20px;
+  }
+}
