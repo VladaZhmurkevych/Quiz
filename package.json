@@ -33,7 +33,7 @@
     "d": "^1.0.1",
     "dotenv": "^8.0.0",
     "eslint-plugin-jest": "^22.7.2",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "husky": "^3.0.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
